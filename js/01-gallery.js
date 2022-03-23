@@ -27,14 +27,14 @@ galleryContainer.addEventListener('click', onImageClick);
 
 function onImageClick(e) {
     e.preventDefault(); 
-    // if (e.target.nodeName !== 'IMG') {
-    //     return;
-    // }
-    // console.log(e.target);
+    if (e.target.nodeName !== 'IMG') {
+        return;
+    }
+    console.log(e.target);
    
     instance = basicLightbox.create(`<img
     class="gallery__image"
-    data-source="${e.target.dataset.source}"
+    src = "${e.target.dataset.source}"
   />`,
    {
     onShow: () => {
