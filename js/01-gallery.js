@@ -6,7 +6,8 @@ console.log(galleryItems);
 const galleryContainer = document.querySelector('.gallery');
 let instance = null;
 
-const galleryItem = galleryItems.map(el => {
+function createGallery(galleryItems){
+return galleryItems.map(el => {
     return `<div class="gallery__item">
     <a class="gallery__link"
      href="${el.original}">
@@ -18,9 +19,9 @@ const galleryItem = galleryItems.map(el => {
       />
     </a>
   </div>`
-}).join('');
+}).join('');}
 
-galleryContainer.insertAdjacentHTML('beforeend', galleryItem);
+galleryContainer.insertAdjacentHTML('beforeend', createGallery(galleryItems));
 console.log(galleryContainer);
 
 galleryContainer.addEventListener('click', onImageClick);
