@@ -7,32 +7,22 @@ const galleryList = document.querySelector('.gallery');
 
 function createGalleryItems (galleryItems){
 return galleryItems.map(el => {
-    return `<a class="gallery__item"
+    return `<li><a class="gallery__item"
      href="${el.original}">
       <img
         class="gallery__image"
         src="${el.preview}"
         alt="${el.description}"
       />
-    </a>`
+    </a></li>`
 }).join('');}
 
 galleryList.insertAdjacentHTML('beforeend', createGalleryItems(galleryItems));
 console.log(galleryList);
 
-galleryList.addEventListener('click', onImageClick);
-function onImageClick(e) {
-    e.preventDefault(); 
-    if (e.target.nodeName !== 'IMG') {
-        return;
-    }
-    console.log(e.target);
-
-   var lightbox = new SimpleLightbox('.gallery a', {
+const lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionDelay: '250ms',
      });
-   
-   return lightbox;
-}
+console.log(lightbox);
 
