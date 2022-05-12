@@ -1,7 +1,4 @@
 import { galleryItems } from './gallery-items.js';
-// Change code below this line
-
-console.log(galleryItems);
 
 const galleryContainer = document.querySelector('.gallery');
 let instance = null;
@@ -22,7 +19,6 @@ return galleryItems.map(el => {
 }).join('');}
 
 galleryContainer.insertAdjacentHTML('beforeend', createGallery(galleryItems));
-console.log(galleryContainer);
 
 galleryContainer.addEventListener('click', onImageClick);
 
@@ -31,14 +27,11 @@ function onImageClick(e) {
     if (e.target.nodeName !== 'IMG') {
         return;
     }
-    console.log(e.target);
-   
     instance = basicLightbox.create(`<img
     class="gallery__image"
     src = "${e.target.dataset.source}"
   />`,
-   {
-    onShow: () => {
+   {onShow: () => {
        window.addEventListener('keydown', onEscPress);
     },
     onClose: () => {
